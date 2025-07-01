@@ -1,4 +1,4 @@
-# 🧠 YOLOv8 - Detecção de Objetos em Imagens com Ultralytics
+# 🧠 YOLOv8 - Detecção de Objetos em Imagens com Ultralytics - Relatório Técnico
 
 Este projeto utiliza o modelo YOLOv8 da [Ultralytics](https://github.com/ultralytics/ultralytics) para treinar uma rede neural capaz de detectar objetos como **jogadores**, **árbitros**, **goleiros** e **bolas** em imagens de partidas de futebol.
 
