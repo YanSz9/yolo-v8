@@ -110,10 +110,43 @@ names: ['ball', 'goalkeeper', 'player', 'referee']
 
 ## 📷 Exemplo de Resultado
 
-<img src="resultado.jpg" alt="Resultado da Inferência" width="500"/>
+![Resultado](resultado.png)
+
+## 📊 Avaliação do Modelo
+
+Abaixo estão as principais métricas visuais utilizadas para analisar o desempenho do modelo YOLOv8 treinado neste projeto.
+
+### 🔵 Curva F1 x Confiança
+
+A curva abaixo mostra a relação entre o valor de confiança das detecções e a pontuação F1, permitindo identificar o melhor ponto de corte de confiança para maximizar o equilíbrio entre precisão e revocação:
+
+![Curva F1](F1_curve.png)
+
+- O melhor ponto de corte (threshold) está em 0.132 com F1 ≈ 0.48.
+- A classe `player` apresenta o melhor desempenho geral.
+- A classe `ball` possui baixa performance devido à escassez ou dificuldade de detecção.
 
 ---
 
-## 📄 Licença
+### 🔵 Matriz de Confusão
 
-Este projeto é distribuído sob a licença MIT. Sinta-se à vontade para usá-lo, modificá-lo e distribuí-lo.
+A matriz de confusão abaixo apresenta como as classes foram confundidas entre si. Quanto mais escura a célula diagonal, melhor a performance para aquela classe:
+
+![Matriz de Confusão](confusion_matrix.png)
+
+- `player` tem ótima taxa de acerto (901 predições corretas).
+- `referee` e `goalkeeper` apresentam confusão com outras classes e com o fundo (`background`).
+- Há grande confusão entre `referee` e `player`.
+
+---
+
+### 🔵 Curva Precisão x Revocação (Precision-Recall)
+
+Esta curva mostra como o modelo equilibra precisão e revocação ao longo de diferentes limiares:
+
+![Curva Precision-Recall](PR_Curve.png)
+
+- `player` novamente demonstra excelente desempenho com mAP@0.5 = 0.955.
+- `referee` e `goalkeeper` têm desempenho intermediário.
+- A classe `ball` é a mais difícil de detectar com precisão (mAP@0.5 = 0.107).
+
